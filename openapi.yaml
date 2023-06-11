@@ -1,0 +1,77 @@
+openapi: 3.0.0
+info:
+  title: Transaction Management Microservice API
+  version: 1.0.0
+servers:
+  - url: localhost:8086 
+paths:
+  /transactions/newTransaction:
+    post:
+      tags:
+        - Transactions
+      summary: Create a new transaction
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TransactionPayload'
+      responses:
+        '200':
+          description: Transaction stored successfully
+        '400':
+          description: Transaction could not be created
+  /transactions/status:
+    post:
+      tags:
+        - Transactions
+      summary: Get transaction status
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TransactionStatusRequest'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TransactionStatusResponse'
+components:
+  schemas:
+    TransactionPayload:
+      type: object
+      properties:
+        reference:
+          type: string
+        account_iban:
+          type: string
+        date:
+          type: string
+          format: date-time
+        amount:
+          type: number
+        fee:
+          type: number
+        description: 
+          type: string
+    TransactionStatusRequest:
+      type: object
+      properties:
+        reference:
+          type: string
+        channel:
+          type: string
+    TransactionStatusResponse:
+      type: object
+      properties:
+        reference:
+          type: string
+        status:
+          type: string
+        amount:
+          type: number
+        fee:
+          type: number
