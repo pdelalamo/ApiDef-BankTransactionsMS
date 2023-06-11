@@ -1,0 +1,13 @@
+components:
+  schemas:
+    TransactionStatusResponse:
+      type: object
+      properties:
+        reference:
+          type: string
+        status:
+          type: string
+        amount:
+          type: number
+        fee:
+          type: number

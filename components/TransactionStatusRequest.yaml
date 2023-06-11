@@ -1,0 +1,9 @@
+components:
+  schemas:
+    TransactionStatusRequest:
+      type: object
+      properties:
+        reference:
+          type: string
+        channel:
+          type: string

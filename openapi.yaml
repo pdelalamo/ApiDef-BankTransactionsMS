@@ -15,7 +15,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/TransactionPayload'
+              $ref: './components/schemas/TransactionPayload'
       responses:
         '200':
           description: Transaction stored successfully
@@ -31,14 +31,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/TransactionStatusRequest'
+              $ref: './components/schemas/TransactionStatusRequest'
       responses:
         '200':
           description: OK
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TransactionStatusResponse'
+                $ref: './components/schemas/TransactionStatusResponse'
 components:
   schemas:
     TransactionPayload:

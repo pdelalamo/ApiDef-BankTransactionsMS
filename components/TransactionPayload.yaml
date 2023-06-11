@@ -1,0 +1,18 @@
+components:
+  schemas:
+    TransactionPayload:
+      type: object
+      properties:
+        reference:
+          type: string
+        account_iban:
+          type: string
+        date:
+          type: string
+          format: date-time
+        amount:
+          type: number
+        fee:
+          type: number
+        description: 
+          type: string
